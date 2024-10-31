@@ -1,0 +1,7 @@
+{
+  "name": "@iwatakeshi/astronaut",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
