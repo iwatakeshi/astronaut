@@ -1,0 +1,48 @@
+---
+import type { HTMLTag } from "astro/types";
+import type { Props as BoxProps } from "../box/box.astro";
+import type { ResponsiveValue } from "../types/variants";
+import { ClassList } from "../utils/classlist";
+import Box from "../box/box.astro";
+
+export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
+  rows?: ResponsiveValue;
+  cols?: ResponsiveValue;
+  gap?: ResponsiveValue;
+  flow?: ResponsiveValue;
+  autoCols?: ResponsiveValue;
+  autoRows?: ResponsiveValue;
+};
+
+const {
+  as: Tag = "div",
+  class: klass,
+  "class:list": list,
+  display = "grid",
+  rows,
+  cols,
+  gap,
+  flow,
+  autoCols,
+  autoRows,
+  ...rest
+}: Props = Astro.props;
+
+const classes = ClassList.add(
+  list,
+  ...[
+    ClassList.fromResponsiveValue("display", display),
+    klass || '',
+    ClassList.fromResponsiveValue("grid-rows", rows),
+    ClassList.fromResponsiveValue("grid-cols", cols),
+    ClassList.fromResponsiveValue("gap", gap),
+    ClassList.fromResponsiveValue("grid-flow", flow),
+    ClassList.fromResponsiveValue("auto-cols", autoCols),
+    ClassList.fromResponsiveValue("auto-rows", autoRows),
+  ]
+);
+---
+
+<Box class={classes} {...rest}>
+  <slot />
+</Box>

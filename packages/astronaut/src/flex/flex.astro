@@ -1,0 +1,13 @@
+---
+import type { HTMLTag } from "astro/types";
+import type { Props as BoxProps } from "../box/box.astro";
+import type { ResponsiveValue } from "../types/variants";
+import { ClassList } from "../utils/classlist";
+import Box from "../box/box.astro";
+
+export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
+  basis?: ResponsiveValue;
+  direction?: ResponsiveValue;
+  wrap?: ResponsiveValue;
+};
+---

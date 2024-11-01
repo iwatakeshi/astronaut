@@ -1,0 +1,85 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import type { ResponsiveValue } from "../types/variants";
+import { ClassList } from "../utils/classlist";
+
+export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
+  display?: ResponsiveValue;
+  p?: ResponsiveValue;
+  py?: ResponsiveValue;
+  px?: ResponsiveValue;
+  pt?: ResponsiveValue;
+  pr?: ResponsiveValue;
+  pb?: ResponsiveValue;
+  pl?: ResponsiveValue;
+  pe?: ResponsiveValue;
+  ps?: ResponsiveValue;
+
+  m?: ResponsiveValue;
+  my?: ResponsiveValue;
+  mx?: ResponsiveValue;
+  mt?: ResponsiveValue;
+  mr?: ResponsiveValue;
+  mb?: ResponsiveValue;
+  ml?: ResponsiveValue;
+  me?: ResponsiveValue;
+  ms?: ResponsiveValue;
+};
+
+const {
+  as: Tag = "div",
+  class: klass,
+  "class:list": list,
+  display,
+  p,
+  py,
+  px,
+  pt,
+  pr,
+  pb,
+  pl,
+  pe,
+  ps,
+  m,
+  my,
+  mx,
+  mt,
+  mr,
+  mb,
+  ml,
+  me,
+  ms,
+  ...rest
+}: Props = Astro.props;
+
+
+const classes = ClassList.add(
+  list,
+  ...[
+    klass || '',
+    ClassList.fromResponsiveValue("display", display),
+    ClassList.fromResponsiveValue("p", p),
+    ClassList.fromResponsiveValue("py", py),
+    ClassList.fromResponsiveValue("px", px),
+    ClassList.fromResponsiveValue("pt", pt),
+    ClassList.fromResponsiveValue("pr", pr),
+    ClassList.fromResponsiveValue("pb", pb),
+    ClassList.fromResponsiveValue("pl", pl),
+    ClassList.fromResponsiveValue("pe", pe),
+    ClassList.fromResponsiveValue("ps", ps),
+    ClassList.fromResponsiveValue("m", m),
+    ClassList.fromResponsiveValue("my", my),
+    ClassList.fromResponsiveValue("mx", mx),
+    ClassList.fromResponsiveValue("mt", mt),
+    ClassList.fromResponsiveValue("mr", mr),
+    ClassList.fromResponsiveValue("mb", mb),
+    ClassList.fromResponsiveValue("ml", ml),
+    ClassList.fromResponsiveValue("me", me),
+    ClassList.fromResponsiveValue("ms", ms),
+  ].filter(Boolean),
+);
+---
+
+<Tag class={classes} {...rest}>
+  <slot />
+</Tag>

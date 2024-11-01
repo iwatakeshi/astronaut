@@ -1,0 +1,47 @@
+---
+import type { HTMLTag } from "astro/types";
+import type { Props as BoxProps } from "../box/box.astro";
+import type { ResponsiveValue } from "../types/variants";
+import { ClassList } from "../utils/classlist";
+import Box from "../box/box.astro";
+
+export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
+  rowSpan?: ResponsiveValue;
+  rowStart?: ResponsiveValue;
+  rowEnd?: ResponsiveValue;
+
+  colSpan?: ResponsiveValue;
+  colStart?: ResponsiveValue;
+  colEnd?: ResponsiveValue;
+};
+
+const {
+  as: Tag = "div",
+  class: klass,
+  "class:list": list,
+  rowSpan,
+  rowStart,
+  rowEnd,
+  colSpan,
+  colStart,
+  colEnd,
+  ...rest
+}: Props = Astro.props;
+
+const classes = ClassList.add(
+  list,
+  ...[
+    klass || '',
+    ClassList.fromResponsiveValue("row-span", rowSpan),
+    ClassList.fromResponsiveValue("row-start", rowStart),
+    ClassList.fromResponsiveValue("row-end", rowEnd),
+    ClassList.fromResponsiveValue("col-span", colSpan),
+    ClassList.fromResponsiveValue("col-start", colStart),
+    ClassList.fromResponsiveValue("col-end", colEnd),
+  ]
+);
+---
+
+<Box class={classes} {...rest}>
+  <slot />
+</Box>

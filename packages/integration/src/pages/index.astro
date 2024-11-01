@@ -1,5 +1,6 @@
 ---
-
+import { Grid } from "astronaut";
+import "../styles/global.scss";
 ---
 
 <html lang="en">
@@ -12,5 +13,33 @@
 	</head>
 	<body>
 		<h1>Astro</h1>
+		<Grid cols={{ _: 1, md: 3 }}>
+			<Grid.Item
+				class:list={["bg-red-500"]}
+				colSpan={{ _: 2, md: 1  }}
+				rowSpan={1}
+				p={{ _: 8, md: 12 }}
+			>
+				Hello
+			</Grid.Item>
+
+			<Grid.Item
+				class:list={["bg-blue-500"]}
+				colSpan={{ _: 2, md: 1  }}
+				rowSpan={1}
+				p={{ _: 8, md: 12 }}
+			>
+			World
+			</Grid.Item>
+
+			<Grid.Item
+				class:list={["bg-green-500"]}
+				colSpan={{ _: 2, md: 1 }}
+				rowSpan={1}
+				p={{ _: 8, md: 12 }}
+			>
+			Hello
+			</Grid.Item>
+		</Grid>
 	</body>
 </html>
