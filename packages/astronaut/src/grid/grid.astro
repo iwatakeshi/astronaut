@@ -6,8 +6,8 @@ import { ClassList } from "../utils/classlist";
 import Box from "../box/box.astro";
 
 export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
-  rows?: ResponsiveValue;
-  cols?: ResponsiveValue;
+  rows?: ResponsiveValue<number | string | 'none' | 'subgrid'>;
+  cols?: ResponsiveValue<number | string | 'none' | 'subgrid'>;
   gap?: ResponsiveValue;
   flow?: ResponsiveValue;
   autoCols?: ResponsiveValue;
@@ -31,7 +31,7 @@ const {
 const classes = ClassList.add(
   list,
   ...[
-    ClassList.fromResponsiveValue("display", display),
+    ClassList.fromResponsiveValue(null, display),
     klass || '',
     ClassList.fromResponsiveValue("grid-rows", rows),
     ClassList.fromResponsiveValue("grid-cols", cols),

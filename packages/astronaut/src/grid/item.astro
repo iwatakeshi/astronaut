@@ -13,6 +13,8 @@ export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
   colSpan?: ResponsiveValue;
   colStart?: ResponsiveValue;
   colEnd?: ResponsiveValue;
+
+  order?: ResponsiveValue<string | number | 'first' | 'last' | 'none'>;
 };
 
 const {
@@ -25,6 +27,7 @@ const {
   colSpan,
   colStart,
   colEnd,
+  order,
   ...rest
 }: Props = Astro.props;
 
@@ -38,6 +41,7 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("col-span", colSpan),
     ClassList.fromResponsiveValue("col-start", colStart),
     ClassList.fromResponsiveValue("col-end", colEnd),
+    ClassList.fromResponsiveValue("order", order),
   ]
 );
 ---

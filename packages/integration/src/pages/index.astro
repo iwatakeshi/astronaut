@@ -1,45 +1,42 @@
 ---
-import { Grid } from "astronaut";
+import { Grid, Flex } from "@iwatakeshi/astronaut";
 import "../styles/global.scss";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<Grid cols={{ _: 1, md: 3 }}>
-			<Grid.Item
-				class:list={["bg-red-500"]}
-				colSpan={{ _: 2, md: 1  }}
-				rowSpan={1}
-				p={{ _: 8, md: 12 }}
-			>
-				Hello
-			</Grid.Item>
-
-			<Grid.Item
-				class:list={["bg-blue-500"]}
-				colSpan={{ _: 2, md: 1  }}
-				rowSpan={1}
-				p={{ _: 8, md: 12 }}
-			>
-			World
-			</Grid.Item>
-
-			<Grid.Item
-				class:list={["bg-green-500"]}
-				colSpan={{ _: 2, md: 1 }}
-				rowSpan={1}
-				p={{ _: 8, md: 12 }}
-			>
-			Hello
-			</Grid.Item>
-		</Grid>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <section>
+      <Grid
+        class:list={["gap-y-4"]}
+        gap={{ _: 1, md: 2, xl: 4 }}
+        px={{ _: 3, sm: 5, lg: 10, xl: 20 }}
+        py={{ _: 4, sm: 6, md: 8, lg: 14, xl: 20, "2xl": 22 }}
+        cols={{ _: 6, md: 12 }}
+      >
+        <Grid.Item colSpan={{ _: 6, md: 12 }}>
+          <h1
+            class:list={[
+              "leading-none",
+              "extrabold",
+              "text-4xl",
+              "sm:text-5xl",
+              "md:text-7xl",
+              "lg:text-8xl",
+              "xl:text-8xl",
+              "2xl:text-9xl",
+            ]}
+          >
+            The Astronaut Framework: Uniform + Astro
+          </h1>
+        </Grid.Item>
+      </Grid>
+    </section>
+  </body>
 </html>

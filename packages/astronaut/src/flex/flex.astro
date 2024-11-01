@@ -7,7 +7,30 @@ import Box from "../box/box.astro";
 
 export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
   basis?: ResponsiveValue;
-  direction?: ResponsiveValue;
-  wrap?: ResponsiveValue;
+  direction?: ResponsiveValue<'row' | 'row-reverse' | 'col' | 'col-reverse'>;
+  wrap?: ResponsiveValue<'wrap' | 'wrap-reverse' | 'nowrap'>;
+  gap?: ResponsiveValue;
 };
+
+const {
+  display = 'flex',
+  'class:list': list,
+  basis,
+  direction,
+  wrap,
+  gap,
+  ...rest
+}: Props = Astro.props;
+
+const classes = ClassList.add(list, ...[
+  ClassList.fromResponsiveValue(null, display),
+  ClassList.fromResponsiveValue('basis', basis),
+  ClassList.fromResponsiveValue('flex', direction),
+  ClassList.fromResponsiveValue('flex', wrap),
+  ClassList.fromResponsiveValue('gap', gap),
+]);
 ---
+
+<Box display={display} class:list={classes} {...rest}>
+  <slot />
+</Box>

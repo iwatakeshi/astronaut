@@ -1,0 +1,33 @@
+---
+import type { HTMLTag } from "astro/types";
+import type { Props as BoxProps } from "../box/box.astro";
+import type { ResponsiveValue } from "../types/variants";
+import { ClassList } from "../utils/classlist";
+import Box from "../box/box.astro";
+
+export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
+  flex?: ResponsiveValue<'1' | 'auto' | 'initial' | 'none'>;
+  grow?: ResponsiveValue<'1' | '0'>
+  shrink?: ResponsiveValue<'1' | '0'>
+  order?: ResponsiveValue<string | number | 'first' | 'last' | 'none'>
+}
+
+const {
+  display = 'flex',
+  'class:list': list,
+  flex,
+  grow,
+  order,
+  ...rest
+}: Props = Astro.props;
+
+const classes = ClassList.add(list, ...[
+  ClassList.fromResponsiveValue('flex', flex),
+  ClassList.fromResponsiveValue('grow', grow),
+  ClassList.fromResponsiveValue('order', order),
+]);
+---
+
+<Box class={classes} {...rest}>
+  <slot />
+</Box>
