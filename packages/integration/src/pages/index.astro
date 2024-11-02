@@ -14,41 +14,42 @@ import "../styles/global.scss";
   <body>
     <section>
       <Grid
-        gapX={{ _: 2, sm: 4, xl: 8 }}
-        gapY={36}
-        px={{ _: 5, sm: 20, xl: 28 }}
+        gapX={{ _: 2, sm: 4, xl: 10 }}
+        gapY={56}
+        px={{ _: 10, sm: 20, xl: 28 }}
         py={{ _: 20, sm: 40 }}
-        cols={{ _: 6, md: 12 }}
+        cols={{ _: 6, lg: 12 }}
       >
-        <Grid.Item colSpan={{ _: 6, md: 11 }}>
+        <Grid.Item colSpan={{ _: 6, lg: 12 }}>
           <h1
             class:list={[
               "leading-none",
               "ultrabold",
-              "text-4xl",
-              "sm:text-5xl",
-              "md:text-7xl",
-              "lg:text-8xl",
-              "xl:text-8xl",
-              "2xl:text-9xl",
+              "text-5xl",
+              "sm:text-7xl",
+              "md:text-8xl",
+              "lg:text-9xl",
+              "xl:text-10xl",
+              "2xl:text-12xl",
             ]}
           >
-            The Astronaut Framework: Uniform + Astro
+            Feeling Overwhelmed by Endless Tabs?
           </h1>
         </Grid.Item>
         <Grid.Item
           colStart={{
             _: 1,
-            lg: 4,
+            sm: 2,
+            lg: 3,
           }}
-          colSpan={{
+          colEnd={{
             _: 6,
-            sm: 6,
+            lg: 11,
           }}
         >
-          <p class="text-xl">
-            <b class="inline font-bold">Take control with Horse,</b> the browser
-            built for professionals who demand focus and efficiency.<!-- -->
+          <p class="text-xl md:text-3xl">
+            <b class="inline bold">Take control with Horse,</b> the browser
+            built for professionals who demand focus and efficiency.
             <b>Save up to 2 hours every day</b> by organizing your work seamlessly
             and reducing daily stress.
           </p>
@@ -56,116 +57,88 @@ import "../styles/global.scss";
         <Grid.Item
           colStart={{
             _: 1,
-            lg: 4,
+            sm: 2,
+            lg: 3,
           }}
-          colSpan={{
+          colEnd={{
             _: 6,
-            sm: 6,
+            md: 7,
           }}
         >
-          <Flex direction="col" gap={10}>
-            <Flex direction="col" class="items-center" gap={10}>
-              <Flex>
-                <img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:20"
-                  src="https://i.pravatar.cc/40?img=1"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:21"
-                  src="https://i.pravatar.cc/40?img=2"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:22"
-                  src="https://i.pravatar.cc/40?img=3"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:23"
-                  src="https://i.pravatar.cc/40?img=4"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:24"
-                  src="https://i.pravatar.cc/40?img=5"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:25"
-                  src="https://i.pravatar.cc/40?img=6"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:26"
-                  src="https://i.pravatar.cc/40?img=7"
-                /><img
-                  alt="User Avatar"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
-                  style="color:transparent;z-index:27"
-                  src="https://i.pravatar.cc/40?img=8"
-                />
+          <Flex direction="col" gap={20}>
+            <Flex class="items-center" gap={10}>
+              <Flex class="gutter-x-n14">
+                {
+                  [
+                    "https://picsum.photos/40?random=1",
+                    "https://picsum.photos/40?random=2",
+                    "https://picsum.photos/40?random=3",
+                    "https://picsum.photos/40?random=4",
+                    "https://picsum.photos/40?random=5",
+                    "https://picsum.photos/40?random=6",
+                    "https://picsum.photos/40?random=7",
+                    "https://picsum.photos/40?random=8",
+                  ].map((src, index) => (
+                    <img
+                      alt="User Avatar"
+                      loading="lazy"
+                      width="40"
+                      height="40"
+                      decoding="async"
+                      class="relative radius-2xl shadow-md bg-white w-24 h-24 md:h-40 md:w-40 object-cover"
+                      style="color:transparent;z-index:27"
+                      src={src}
+                    />
+                  ))
+                }
               </Flex>
-              <div
-                class="opacity-70 uppercase tracking-wider font-semibold text-xs"
-              >
-                Used by
-              </div><div class="font-bold text-black/50">
-                over 400 professionals
+              <div class="leading-tight">
+                <div
+                  class="opacity-70 uppercase tracking-wider semibold text-xs md:text-sm"
+                >
+                  Used by
+                </div>
+                <div class="bold text-black text-xs md:text-sm">
+                  over 400 professionals
+                </div>
               </div>
             </Flex>
           </Flex>
         </Grid.Item>
         <Grid.Item
+          display={{ _: "hidden", lg: "block" }}
+          colStart={{ lg: 8 }}
+          colEnd={{ _: 7, md: 9, lg: 12 }}
+        >
+          <Flex gap={20}>
+            <img
+            alt="User Avatar"
+            loading="lazy"
+            width="40"
+            height="40"
+            decoding="async"
+            data-nimg="1"
+            class="relative radius-2xl shadow bg-yellow-300 group-hover:rotate-45 transition-all"
+            style="color:transparent"
+            src="https://picsum.photos/40?random=9"
+          /><div class="leading-tight">
+            <div
+              class="opacity-70 uppercase tracking-wider font-semibold text-xs md:text-sm"
+            >
+              Made by
+            </div><div class="bold">iwatakeshi</div>
+          </div>
+          </Flex>
+        </Grid.Item>
+        <Grid.Item
           colStart={{
             _: 1,
-            lg: 4,
+            sm: 2,
+            lg: 3,
           }}
-          colSpan={{
+          colEnd={{
             _: 6,
-            sm: 6,
+            lg: 11,
           }}
         >
           <Grid
@@ -173,42 +146,65 @@ import "../styles/global.scss";
             cols={{ _: 1, lg: 3 }}
             gap={20}
           >
-            <Flex direction="col">
-              <h2 class:list={"extrabold"}>Features</h2>
-              <p>
-                <b>Focus Mode</b> - Hide all distractions and focus on your work.
-              </p>
-              <p>
-                <b>Customizable</b> - Tailor Horse to your needs.
-              </p>
-              <p>
-                <b>Performance</b> - Horse is built for speed and efficiency.
-              </p>
+            <Flex direction="col" gap={20} alignItems="start">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+                class="inline-block h-24 fill-current"
+                ><path
+                  opacity=".4"
+                  d="M104 320H56v-57.6A38.5 38.5 0 0 1 94.4 224H296v-64h48v64h201.6A38.5 38.5 0 0 1 584 262.4V320h-48v-48H344v48h-48v-48H104z"
+                ></path><path
+                  d="M128 352H32a32 32 0 0 0 -32 32v96a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32v-96a32 32 0 0 0 -32-32zM384 0H256a32 32 0 0 0 -32 32v96a32 32 0 0 0 32 32h128a32 32 0 0 0 32-32V32a32 32 0 0 0 -32-32zm224 352h-96a32 32 0 0 0 -32 32v96a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32v-96a32 32 0 0 0 -32-32zm-240 0h-96a32 32 0 0 0 -32 32v96a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32v-96a32 32 0 0 0 -32-32z"
+                ></path></svg
+              ><div>
+                <h2 class="inline bold">
+                  Custom Workflow
+                </h2><p>
+                  Build personalized systems that enhance control and
+                  efficiency, empowering you to manage tasks effortlessly.
+                </p>
+              </div>
             </Flex>
-            <Flex direction="col">
-              <h2 class:list={"extrabold"}>Pricing</h2>
-              <p>
-                <b>Free</b> - For personal use.
-              </p>
-              <p>
-                <b>Pro</b> - For professionals.
-              </p>
-              <p>
-                <b>Enterprise</b> - For teams.
-              </p>
+            <Flex direction="col" gap={20} alignItems="start">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                class="inline-block h-24 fill-current"
+                ><path
+                  opacity=".4"
+                  d="M32 160v288a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V160zm288 84a12 12 0 0 1 -12 12H204a12 12 0 0 1 -12-12v-8a12 12 0 0 1 12-12h104a12 12 0 0 1 12 12z"
+                ></path><path
+                  d="M512 64v48a16 16 0 0 1 -16 16H16a16 16 0 0 1 -16-16V64a32 32 0 0 1 32-32h448a32 32 0 0 1 32 32z"
+                ></path></svg
+              ><div>
+                <h2 class="inline bold">
+                  Conquer Overwhelm
+                </h2><p>
+                  Seamlessly organize hundreds of pages, reducing stress and
+                  allowing you to focus on what truly matters.
+                </p>
+              </div>
             </Flex>
-            <Flex direction="col">
-              <h2 class:list={"extrabold"}>Contact</h2>
-              <p>
-                <b>Email</b> -
-                <a href="#" class="text-blue-500"> blah@test.com </a>
-              </p>
-              <p>
-                <b>Phone</b> - 123-456-7890
-              </p>
-              <p>
-                <b>Address</b> - 1234 Main St, Anytown, USA
-              </p>
+            <Flex direction="col" gap={20} alignItems="start">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="inline-block h-24 fill-current"
+                viewBox="0 0 496 512"
+                ><path
+                  opacity=".4"
+                  d="M245.5 8C108.5 9.4-1.4 121.6 0 258.5S113.6 505.4 250.5 504 497.4 390.4 496 253.5 382.4 6.6 245.5 8zM112 223.4c3.3-42.1 32.2-71.4 56-71.4s52.7 29.3 56 71.4c.7 8.6-10.8 11.9-14.9 4.5l-9.5-17c-7.7-13.7-19.2-21.6-31.5-21.6s-23.8 7.9-31.5 21.6l-9.5 17C122.8 235.3 111.3 231.9 112 223.4zM363.7 345a149.3 149.3 0 0 1 -229.5 2.4c-13.7-16.2 10.6-36.8 24.4-20.8a117.6 117.6 0 0 0 180.4-1.8c13.4-16.3 38.1 3.9 24.8 20.2zM369 227.9l-9.5-17c-7.7-13.7-19.2-21.6-31.5-21.6s-23.8 7.9-31.5 21.6l-9.5 17c-4.1 7.3-15.6 4-14.9-4.5 3.3-42.1 32.2-71.4 56-71.4s52.7 29.3 56 71.4c.6 8.6-11 11.9-15.1 4.5z"
+                ></path><path
+                  d="M168 152c-23.8 0-52.7 29.3-56 71.4-.7 8.5 10.8 11.9 15.1 4.5l9.5-17c7.7-13.7 19.2-21.6 31.5-21.6s23.8 7.9 31.5 21.6l9.5 17c4.1 7.4 15.6 4.1 14.9-4.5C220.7 181.3 191.8 152 168 152zM384.1 223.4c-3.3-42.1-32.2-71.4-56-71.4s-52.7 29.3-56 71.4c-.7 8.5 10.8 11.8 14.9 4.5l9.5-17c7.7-13.7 19.2-21.6 31.5-21.6s23.8 7.9 31.5 21.6l9.5 17c4.1 7.4 15.7 4.1 15.1-4.5z"
+                ></path></svg
+              ><div>
+                <h2 class="inline bold">
+                  Boost Productivity
+                </h2><p>
+                  Save time and increase output by navigating tasks quickly and
+                  managing your workflow effectively every day.
+                </p>
+              </div>
             </Flex>
           </Grid>
         </Grid.Item>
