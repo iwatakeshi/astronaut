@@ -14,17 +14,17 @@ import "../styles/global.scss";
   <body>
     <section>
       <Grid
-        class:list={["gap-y-4"]}
-        gap={{ _: 1, md: 2, xl: 4 }}
-        px={{ _: 3, sm: 5, lg: 10, xl: 20 }}
-        py={{ _: 4, sm: 6, md: 8, lg: 14, xl: 20, "2xl": 22 }}
+        gapX={{ _: 2, sm: 4, xl: 8 }}
+        gapY={36}
+        px={{ _: 5, sm: 20, xl: 28 }}
+        py={{ _: 20, sm: 40, }}
         cols={{ _: 6, md: 12 }}
       >
-        <Grid.Item colSpan={{ _: 6, md: 12 }}>
+        <Grid.Item colSpan={{ _: 6, md: 11 }}>
           <h1
             class:list={[
               "leading-none",
-              "extrabold",
+              "ultrabold",
               "text-4xl",
               "sm:text-5xl",
               "md:text-7xl",
@@ -35,6 +35,75 @@ import "../styles/global.scss";
           >
             The Astronaut Framework: Uniform + Astro
           </h1>
+        </Grid.Item>
+        <Grid.Item
+          colStart={{
+            _: 1,
+            lg: 4,
+          }}
+          colSpan={{
+            _: 6,
+            sm: 6,
+          }}
+        >
+          <p class="text-xl md:text-3xl">
+            <b class="inline font-bold">Take control with Horse,</b> the browser
+            built for professionals who demand focus and efficiency.<!-- -->
+            <b>Save up to 2 hours every day</b> by organizing your work seamlessly
+            and reducing daily stress.
+          </p>
+        </Grid.Item>
+        <Grid.Item
+          colStart={{
+            _: 1,
+            lg: 4,
+          }}
+          colSpan={{
+            _: 6,
+            sm: 6,
+          }}
+        >
+        <Grid class:list={["text-xl 2xl:text-2xl"]} cols={{ _: 1, lg: 3 }} gap={20}>
+          <Flex direction="col">
+            <h2 class:list={["text-2xl", "extrabold"]}>Features</h2>
+            <p>
+              <b>Focus Mode</b> - Hide all distractions and focus on your work.
+            </p>
+            <p>
+              <b>Customizable</b> - Tailor Horse to your needs.
+            </p>
+            <p>
+              <b>Performance</b> - Horse is built for speed and efficiency.
+            </p>
+          </Flex>
+          <Flex direction="col">
+            <h2 class:list={["text-2xl", "extrabold"]}>Pricing</h2>
+            <p>
+              <b>Free</b> - For personal use.
+            </p>
+            <p>
+              <b>Pro</b> - For professionals.
+            </p>
+            <p>
+              <b>Enterprise</b> - For teams.
+            </p>
+          </Flex>
+          <Flex direction="col">
+            <h2 class:list={["text-2xl", "extrabold"]}>Contact</h2>
+            <p>
+              <b>Email</b> -
+              <a href="#" class="text-blue-500">
+                blah@test.com
+              </a>
+            </p>
+            <p>
+              <b>Phone</b> - 123-456-7890
+            </p>
+            <p>
+              <b>Address</b> - 1234 Main St, Anytown, USA
+            </p>
+          </Flex>
+        </Grid>
         </Grid.Item>
       </Grid>
     </section>
