@@ -1,13 +1,5 @@
 import type { AstroBuiltinAttributes } from "astro";
-
-export type ResponsiveValue<T extends string | number = string | number> = T | {
-  base?: T;
-  sm?: T;
-  md?: T;
-  lg?: T;
-  xl?: T;
-  [key: string]: T | undefined;
-};
+import type { ResponsiveValue } from "../types/variants";
 
 type ClassFormatter = (
   value: string | number,
@@ -40,19 +32,19 @@ export class ClassList {
   };
 
   private static parseClass(className: string): ParsedClass {
-    const breakpointMatch = className.match(/^(sm:|md:|lg:|xl:|2xl:)?(.+)$/);
+    const breakpointMatch = className?.match?.(/^(sm:|md:|lg:|xl:|2xl:)?(.+)$/);
     if (!breakpointMatch) {
-      return { 
-        original: className, 
-        breakpoint: 'base', 
-        utility: className, 
-        weight: 0 
+      return {
+        original: className,
+        breakpoint: 'base',
+        utility: className,
+        weight: 0
       };
     }
 
     const [, breakpoint = 'base', remainder] = breakpointMatch;
     const cleanBreakpoint = breakpoint.replace(':', '');
-    
+
     // Split utility and modifier (e.g., "gap-y" from "gap-y-36")
     const [utility, ...modifierParts] = remainder.split('-');
     const modifier = modifierParts.join('-');
@@ -68,7 +60,7 @@ export class ClassList {
 
   private static sortClasses(classes: string[]): string[] {
     const parsedClasses = classes.map(cls => this.parseClass(cls));
-    
+
     // Group by utility
     const groupedClasses: Record<string, ParsedClass[]> = {};
     parsedClasses.forEach(cls => {
@@ -80,7 +72,7 @@ export class ClassList {
 
     // Sort within groups and flatten
     return Object.values(groupedClasses)
-      .flatMap(group => 
+      .flatMap(group =>
         group
           .sort((a, b) => a.weight - b.weight)
           .map(cls => cls.original)
@@ -93,16 +85,18 @@ export class ClassList {
     { format: formatter, filter }: Options = {}
   ): string {
     if (value === undefined) return "";
-    
+
     const $formatter: ClassFormatter = formatter ?? ((value, prefix, breakpoint) => {
-      if (prefix === 'display') return '';
 
       if (["base", "_"].includes(breakpoint) && prefix) {
+        if (prefix === 'display') return `${value}`;
         return `${prefix}-${value}`;
       }
       if (["base", "_"].includes(breakpoint) && !prefix) {
         return `${value}`;
       }
+
+      if (prefix === 'display') return `${breakpoint}:${value}`;
       return `${breakpoint}:${prefix}-${value}`;
     });
 
@@ -121,15 +115,21 @@ export class ClassList {
   }
 
   static add(list: AstroBuiltinAttributes["class:list"], ...classes: string[]) {
-    const allClasses = [...this.toArray(list), ...classes].filter(Boolean);
+    const allClasses = this.dedupe(
+      [
+        ...ClassList.toArray(list).flatMap(ClassList.dedupe),
+        ...classes.flatMap(ClassList.dedupe)
+      ].filter(Boolean)
+    );
+
     return this.sortClasses(allClasses).join(" ").trim();
   }
 
   static toArray(list: AstroBuiltinAttributes["class:list"]): string[] {
     if (typeof list === "undefined" || list === null) return [];
-    if (typeof list === "string") return [list];
+    if (typeof list === "string") return list.split(" ");
     if (Array.isArray(list)) return list;
-    
+
     if (list !== null && list !== undefined) {
       if ((list as any)[Symbol.iterator]) {
         return [...(list as Iterable<any>)].map(item => item.toString());
@@ -143,5 +143,9 @@ export class ClassList {
     }
 
     return [];
+  }
+
+  static dedupe(list: AstroBuiltinAttributes["class:list"]) {
+    return Array.from(new Set(ClassList.toArray(list)));
   }
 }
