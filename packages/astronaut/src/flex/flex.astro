@@ -12,10 +12,15 @@ export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
   gap?: ResponsiveValue;
   gapY?: ResponsiveValue;
   gapX?: ResponsiveValue;
+  alignItems?: ResponsiveValue<'center' | 'start' | 'end' | 'stretch' | 'baseline'>;
+  alignContent?: ResponsiveValue<'center' | 'start' | 'end' | 'between' | 'around' | 'evenly'>;
+  justifyContent?: ResponsiveValue<'center' | 'start' | 'end' | 'between' | 'around' | 'evenly'>;
+  justifyItems?: ResponsiveValue<'center' | 'start' | 'end' | 'stretch' | 'baseline'>;
 };
 
 const {
   display = 'flex',
+  class: klass,
   'class:list': list,
   basis,
   direction,
@@ -23,10 +28,15 @@ const {
   gap,
   gapX,
   gapY,
+  alignItems,
+  alignContent,
+  justifyContent,
+  justifyItems,
   ...rest
 }: Props = Astro.props;
 
 const classes = ClassList.add(list, ...[
+  klass || '',
   ClassList.fromResponsiveValue(null, display),
   ClassList.fromResponsiveValue('basis', basis),
   ClassList.fromResponsiveValue('flex', direction),
@@ -34,6 +44,10 @@ const classes = ClassList.add(list, ...[
   ClassList.fromResponsiveValue('gap', gap),
   ClassList.fromResponsiveValue('gap-x', gapX),
   ClassList.fromResponsiveValue('gap-y', gapY),
+  ClassList.fromResponsiveValue('align-items', alignItems),
+  ClassList.fromResponsiveValue('align-content', alignContent),
+  ClassList.fromResponsiveValue('justify-items', justifyItems),
+  ClassList.fromResponsiveValue('justify-content', justifyContent),
 ]);
 ---
 

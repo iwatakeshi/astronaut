@@ -35,8 +35,8 @@ const {
 const classes = ClassList.add(
   list,
   ...[
-    ClassList.fromResponsiveValue(null, display),
     klass || "",
+    ClassList.fromResponsiveValue(null, display),
     ClassList.fromResponsiveValue("grid-rows", rows),
     ClassList.fromResponsiveValue("grid-cols", cols),
     ClassList.fromResponsiveValue("gap", gap),
