@@ -10,6 +10,8 @@ export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
   direction?: ResponsiveValue<'row' | 'row-reverse' | 'col' | 'col-reverse'>;
   wrap?: ResponsiveValue<'wrap' | 'wrap-reverse' | 'nowrap'>;
   gap?: ResponsiveValue;
+  gapY?: ResponsiveValue;
+  gapX?: ResponsiveValue;
 };
 
 const {
@@ -19,6 +21,8 @@ const {
   direction,
   wrap,
   gap,
+  gapX,
+  gapY,
   ...rest
 }: Props = Astro.props;
 
@@ -28,6 +32,8 @@ const classes = ClassList.add(list, ...[
   ClassList.fromResponsiveValue('flex', direction),
   ClassList.fromResponsiveValue('flex', wrap),
   ClassList.fromResponsiveValue('gap', gap),
+  ClassList.fromResponsiveValue('gap-x', gapX),
+  ClassList.fromResponsiveValue('gap-y', gapY),
 ]);
 ---
 

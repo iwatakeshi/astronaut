@@ -9,6 +9,8 @@ export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
   rows?: ResponsiveValue<number | string | 'none' | 'subgrid'>;
   cols?: ResponsiveValue<number | string | 'none' | 'subgrid'>;
   gap?: ResponsiveValue;
+  gapX?: ResponsiveValue;
+  gapY?: ResponsiveValue;
   flow?: ResponsiveValue;
   autoCols?: ResponsiveValue;
   autoRows?: ResponsiveValue;
@@ -22,6 +24,8 @@ const {
   rows,
   cols,
   gap,
+  gapX,
+  gapY,
   flow,
   autoCols,
   autoRows,
@@ -32,10 +36,12 @@ const classes = ClassList.add(
   list,
   ...[
     ClassList.fromResponsiveValue(null, display),
-    klass || '',
+    klass || "",
     ClassList.fromResponsiveValue("grid-rows", rows),
     ClassList.fromResponsiveValue("grid-cols", cols),
     ClassList.fromResponsiveValue("gap", gap),
+    ClassList.fromResponsiveValue("gap-x", gapX),
+    ClassList.fromResponsiveValue("gap-y", gapY),
     ClassList.fromResponsiveValue("grid-flow", flow),
     ClassList.fromResponsiveValue("auto-cols", autoCols),
     ClassList.fromResponsiveValue("auto-rows", autoRows),
