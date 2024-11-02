@@ -95,6 +95,8 @@ export class ClassList {
     if (value === undefined) return "";
     
     const $formatter: ClassFormatter = formatter ?? ((value, prefix, breakpoint) => {
+      if (prefix === 'display') return '';
+
       if (["base", "_"].includes(breakpoint) && prefix) {
         return `${prefix}-${value}`;
       }

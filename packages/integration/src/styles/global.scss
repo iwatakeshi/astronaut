@@ -101,9 +101,10 @@
 body {
   font-family: font-family("inter");
   background-color: rgb(var(--platinum-500));
+  color: rgb(var(--ebony-900));
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: font-family("merriweather");
   color: rgb(var(--yellow-green-900))
 }

@@ -17,7 +17,7 @@ import "../styles/global.scss";
         gapX={{ _: 2, sm: 4, xl: 8 }}
         gapY={36}
         px={{ _: 5, sm: 20, xl: 28 }}
-        py={{ _: 20, sm: 40, }}
+        py={{ _: 20, sm: 40 }}
         cols={{ _: 6, md: 12 }}
       >
         <Grid.Item colSpan={{ _: 6, md: 11 }}>
@@ -46,7 +46,7 @@ import "../styles/global.scss";
             sm: 6,
           }}
         >
-          <p class="text-xl md:text-3xl">
+          <p class="text-xl">
             <b class="inline font-bold">Take control with Horse,</b> the browser
             built for professionals who demand focus and efficiency.<!-- -->
             <b>Save up to 2 hours every day</b> by organizing your work seamlessly
@@ -63,47 +63,154 @@ import "../styles/global.scss";
             sm: 6,
           }}
         >
-        <Grid class:list={["text-xl 2xl:text-2xl"]} cols={{ _: 1, lg: 3 }} gap={20}>
-          <Flex direction="col">
-            <h2 class:list={["text-2xl", "extrabold"]}>Features</h2>
-            <p>
-              <b>Focus Mode</b> - Hide all distractions and focus on your work.
-            </p>
-            <p>
-              <b>Customizable</b> - Tailor Horse to your needs.
-            </p>
-            <p>
-              <b>Performance</b> - Horse is built for speed and efficiency.
-            </p>
+          <Flex direction="col" gap={10}>
+            <Flex direction="col" class="items-center" gap={10}>
+              <Flex>
+                <img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:20"
+                  src="https://i.pravatar.cc/40?img=1"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:21"
+                  src="https://i.pravatar.cc/40?img=2"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:22"
+                  src="https://i.pravatar.cc/40?img=3"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:23"
+                  src="https://i.pravatar.cc/40?img=4"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:24"
+                  src="https://i.pravatar.cc/40?img=5"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:25"
+                  src="https://i.pravatar.cc/40?img=6"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:26"
+                  src="https://i.pravatar.cc/40?img=7"
+                /><img
+                  alt="User Avatar"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  data-nimg="1"
+                  class="relative radius-xl shadow bg-white w-20 sm:w-36"
+                  style="color:transparent;z-index:27"
+                  src="https://i.pravatar.cc/40?img=8"
+                />
+              </Flex>
+              <div
+                class="opacity-70 uppercase tracking-wider font-semibold text-xs"
+              >
+                Used by
+              </div><div class="font-bold text-black/50">
+                over 400 professionals
+              </div>
+            </Flex>
           </Flex>
-          <Flex direction="col">
-            <h2 class:list={["text-2xl", "extrabold"]}>Pricing</h2>
-            <p>
-              <b>Free</b> - For personal use.
-            </p>
-            <p>
-              <b>Pro</b> - For professionals.
-            </p>
-            <p>
-              <b>Enterprise</b> - For teams.
-            </p>
-          </Flex>
-          <Flex direction="col">
-            <h2 class:list={["text-2xl", "extrabold"]}>Contact</h2>
-            <p>
-              <b>Email</b> -
-              <a href="#" class="text-blue-500">
-                blah@test.com
-              </a>
-            </p>
-            <p>
-              <b>Phone</b> - 123-456-7890
-            </p>
-            <p>
-              <b>Address</b> - 1234 Main St, Anytown, USA
-            </p>
-          </Flex>
-        </Grid>
+        </Grid.Item>
+        <Grid.Item
+          colStart={{
+            _: 1,
+            lg: 4,
+          }}
+          colSpan={{
+            _: 6,
+            sm: 6,
+          }}
+        >
+          <Grid
+            class:list={["text-xl 2xl:text-2xl"]}
+            cols={{ _: 1, lg: 3 }}
+            gap={20}
+          >
+            <Flex direction="col">
+              <h2 class:list={"extrabold"}>Features</h2>
+              <p>
+                <b>Focus Mode</b> - Hide all distractions and focus on your work.
+              </p>
+              <p>
+                <b>Customizable</b> - Tailor Horse to your needs.
+              </p>
+              <p>
+                <b>Performance</b> - Horse is built for speed and efficiency.
+              </p>
+            </Flex>
+            <Flex direction="col">
+              <h2 class:list={"extrabold"}>Pricing</h2>
+              <p>
+                <b>Free</b> - For personal use.
+              </p>
+              <p>
+                <b>Pro</b> - For professionals.
+              </p>
+              <p>
+                <b>Enterprise</b> - For teams.
+              </p>
+            </Flex>
+            <Flex direction="col">
+              <h2 class:list={"extrabold"}>Contact</h2>
+              <p>
+                <b>Email</b> -
+                <a href="#" class="text-blue-500"> blah@test.com </a>
+              </p>
+              <p>
+                <b>Phone</b> - 123-456-7890
+              </p>
+              <p>
+                <b>Address</b> - 1234 Main St, Anytown, USA
+              </p>
+            </Flex>
+          </Grid>
         </Grid.Item>
       </Grid>
     </section>
