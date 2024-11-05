@@ -1,5 +1,5 @@
 ---
-import { Grid, Flex } from "@iwatakeshi/astronaut";
+import { Grid, Flex, Text } from "@iwatakeshi/astronaut";
 import "../styles/global.scss";
 ---
 
@@ -21,20 +21,21 @@ import "../styles/global.scss";
         cols={{ _: 6, lg: 12 }}
       >
         <Grid.Item colSpan={{ _: 6, lg: 12 }}>
-          <h1
-            class:list={[
-              "leading-none",
-              "ultrabold",
-              "text-5xl",
-              "sm:text-7xl",
-              "md:text-8xl",
-              "lg:text-9xl",
-              "xl:text-10xl",
-              "2xl:text-12xl",
-            ]}
+          <Text
+            as="h1"
+            leading="none"
+            weight="ultrabold"
+            size={{
+              _: "5xl",
+              sm: "7xl",
+              md: "8xl",
+              lg: "9xl",
+              xl: "10xl",
+              "2xl": "12xl",
+            }}
           >
             Getting Tired With the Same Old Template?
-          </h1>
+          </Text>
         </Grid.Item>
         <Grid.Item
           colStart={{
