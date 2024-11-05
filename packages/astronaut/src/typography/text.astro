@@ -1,0 +1,61 @@
+---
+import type { Props as BoxProps } from "../box/box.astro";
+import Box from "../box/box.astro";
+import type { ResponsiveValue } from "../types/variants";
+import { ClassList } from "../utils/classlist";
+
+type TextTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "a" | "li" | "blockquote" | "pre" | "strong" | "em" | "small" | "mark" | "code" | "sub" | "sup" | "abbr" | "cite" | "time";
+export type Props<Tag extends TextTag = TextTag> =
+  BoxProps<Tag> & {
+    /** Font size */
+    size?: ResponsiveValue<'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl' | '10xl' | '11xl' | '12xl' | '13xl' | string>;
+    /** Font weight */
+    weight?: ResponsiveValue<'ultralight' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold' | string>;
+    /** Line height */
+    leading?: ResponsiveValue;
+    /** Letter spacing */
+    tracking?: ResponsiveValue;
+    /** Text alignment */
+    align?: ResponsiveValue<'left' | 'center' | 'right' | 'justify' | string>;
+    /** Text transform */
+    transform?: ResponsiveValue<'uppercase' | 'lowercase' | 'capitalize' | string>;
+    /** Text decoration */
+    decoration?: ResponsiveValue<'underline' | 'line-through' | 'no-underline' | string>;
+    /** Font family */
+    family?: ResponsiveValue<'sans' | 'serif' | 'mono' | string>;
+  };
+
+const {
+  as: Tag = "h1",
+  class: klass,
+  "class:list": list,
+  size,
+  weight,
+  leading,
+  tracking,
+  align,
+  transform,
+  decoration,
+  family,
+  ...rest
+}: Props = Astro.props;
+
+const classes = ClassList.add(
+  list,
+  ...[
+    klass || "",
+    ClassList.fromResponsiveValue('text', size),
+    ClassList.fromResponsiveValue(null, weight),
+    ClassList.fromResponsiveValue('leading', leading),
+    ClassList.fromResponsiveValue('tracking', tracking),
+    ClassList.fromResponsiveValue('text', align),
+    ClassList.fromResponsiveValue('text', transform),
+    ClassList.fromResponsiveValue('text', decoration),
+    ClassList.fromResponsiveValue('font', family),
+  ]
+)
+---
+
+<Box as={Tag} class={classes} {...rest}>
+  <slot />
+</Box>

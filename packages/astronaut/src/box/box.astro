@@ -24,6 +24,11 @@ export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   ml?: ResponsiveValue;
   me?: ResponsiveValue;
   ms?: ResponsiveValue;
+
+  color?: ResponsiveValue;
+  opacity?: ResponsiveValue;
+
+  radius?: ResponsiveValue<'none'| 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | string>;
 };
 
 const {
@@ -49,6 +54,11 @@ const {
   ml,
   me,
   ms,
+
+  color,
+  opacity,
+  
+  radius,
   ...rest
 }: Props = Astro.props;
 
@@ -76,6 +86,9 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("ml", ml),
     ClassList.fromResponsiveValue("me", me),
     ClassList.fromResponsiveValue("ms", ms),
+    ClassList.fromResponsiveValue("color", color),
+    ClassList.fromResponsiveValue("opacity", opacity),
+    ClassList.fromResponsiveValue("radius", radius),
   ].filter(Boolean),
 );
 ---

@@ -4,5 +4,6 @@
 import Box from "./src/box/box.astro";
 import Grid from "./src/grid";
 import Flex from "./src/flex";
+import Text from './src/typography/text.astro';
 
-export { Box, Grid, Flex };
+export { Box, Grid, Flex, Text };
