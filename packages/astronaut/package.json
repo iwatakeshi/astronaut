@@ -10,7 +10,6 @@
     "index.ts"
   ],
   "keywords": [
-    "astro-component"
   ],
   "scripts": {},
   "devDependencies": {
