@@ -1,6 +1,5 @@
 {
   "name": "@iwatakeshi/astronaut-modules",
-  "private": true,
   "workspaces": [
     "packages/*"
   ]
