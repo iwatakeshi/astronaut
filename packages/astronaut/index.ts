@@ -6,4 +6,8 @@ import Grid from "./src/grid";
 import Flex from "./src/flex";
 import Text from './src/typography/text.astro';
 
+import type { Props as BoxProps } from "./src/box/box.astro";
+import type { Props as TextProps } from './src/typography/text.astro';
+import type { ResponsiveValue } from "./src/types/variants";
+export type { BoxProps, TextProps, ResponsiveValue };
 export { Box, Grid, Flex, Text };
