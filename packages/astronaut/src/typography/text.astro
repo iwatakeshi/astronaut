@@ -23,6 +23,8 @@ export type Props<Tag extends TextTag = TextTag> =
     decoration?: ResponsiveValue<'underline' | 'line-through' | 'no-underline' | string>;
     /** Font family */
     family?: ResponsiveValue<'sans' | 'serif' | 'mono' | string>;
+    /** Word break */
+    break?: ResponsiveValue<'normal' | 'break-all' | 'keep-all' | 'break-word' | string>;
   };
 
 const {
