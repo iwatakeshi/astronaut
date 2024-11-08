@@ -7,7 +7,18 @@ import Flex from "./src/flex";
 import Text from './src/typography/text.astro';
 
 import type { Props as BoxProps } from "./src/box/box.astro";
+import type { GridProps, GridItemProps } from "./src/grid";
+import type { FlexProps, FlexItemProps } from "./src/flex";
+
 import type { Props as TextProps } from './src/typography/text.astro';
 import type { ResponsiveValue } from "./src/types/variants";
-export type { BoxProps, TextProps, ResponsiveValue };
+export type { 
+  BoxProps,
+  FlexProps,
+  FlexItemProps,
+  GridProps,
+  GridItemProps,
+  TextProps,
+  ResponsiveValue 
+};
 export { Box, Grid, Flex, Text };
