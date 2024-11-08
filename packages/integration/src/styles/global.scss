@@ -1,4 +1,4 @@
-@use "uniform" as * with ($config: (font-families: (inter: ("Inter",
+@use "pkg:@iwatakeshi/uniformcss" as * with ($config: (font-families: (inter: ("Inter",
         system-ui,
         sans-serif,
       ),
