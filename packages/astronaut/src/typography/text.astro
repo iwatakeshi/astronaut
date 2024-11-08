@@ -23,8 +23,10 @@ export type Props<Tag extends TextTag = TextTag> =
     decoration?: ResponsiveValue<'underline' | 'line-through' | 'no-underline' | string>;
     /** Font family */
     family?: ResponsiveValue<'sans' | 'serif' | 'mono' | string>;
-    /** Word break */
+    /** Word-break */
     break?: ResponsiveValue<'normal' | 'break-all' | 'keep-all' | 'break-word' | string>;
+    /** White-space */
+    whitespace?: ResponsiveValue<'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | string>;
   };
 
 const {
@@ -39,6 +41,8 @@ const {
   transform,
   decoration,
   family,
+  break: wordBreak,
+  whitespace,
   ...rest
 }: Props = Astro.props;
 
@@ -54,6 +58,8 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue('text', transform),
     ClassList.fromResponsiveValue('text', decoration),
     ClassList.fromResponsiveValue('font', family),
+    ClassList.fromResponsiveValue('break', wordBreak),
+    ClassList.fromResponsiveValue('whitespace', whitespace),
   ]
 )
 ---
