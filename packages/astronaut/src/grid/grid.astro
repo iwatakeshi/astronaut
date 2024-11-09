@@ -14,6 +14,10 @@ export type Props<Tag extends HTMLTag = "div"> = BoxProps<Tag> & {
   flow?: ResponsiveValue;
   autoCols?: ResponsiveValue;
   autoRows?: ResponsiveValue;
+  alignItems?: ResponsiveValue<'center' | 'start' | 'end' | 'stretch' | 'baseline'>;
+  alignContent?: ResponsiveValue<'center' | 'start' | 'end' | 'between' | 'around' | 'evenly'>;
+  justifyContent?: ResponsiveValue<'center' | 'start' | 'end' | 'between' | 'around' | 'evenly'>;
+  justifyItems?: ResponsiveValue<'center' | 'start' | 'end' | 'stretch' | 'baseline'>;
 };
 
 const {
@@ -29,6 +33,10 @@ const {
   flow,
   autoCols,
   autoRows,
+  alignItems,
+  alignContent,
+  justifyContent,
+  justifyItems,
   ...rest
 }: Props = Astro.props;
 
@@ -45,10 +53,14 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("grid-flow", flow),
     ClassList.fromResponsiveValue("auto-cols", autoCols),
     ClassList.fromResponsiveValue("auto-rows", autoRows),
+    ClassList.fromResponsiveValue('align-items', alignItems),
+    ClassList.fromResponsiveValue('align-content', alignContent),
+    ClassList.fromResponsiveValue('justify-items', justifyItems),
+    ClassList.fromResponsiveValue('justify-content', justifyContent),
   ]
 );
 ---
 
-<Box class={classes} {...rest}>
+<Box class:list={classes} {...rest}>
   <slot />
 </Box>
