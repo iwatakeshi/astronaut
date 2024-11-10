@@ -5,6 +5,8 @@ import { ClassList } from "../utils/classlist";
 
 export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   display?: ResponsiveValue;
+  visibility?: ResponsiveValue<'visible' | 'hidden' | 'collapse'>;
+
   p?: ResponsiveValue;
   py?: ResponsiveValue;
   px?: ResponsiveValue;
@@ -29,6 +31,40 @@ export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   opacity?: ResponsiveValue;
 
   radius?: ResponsiveValue<'none'| 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | string>;
+  
+  /// Flexbox properties
+  flex?: ResponsiveValue<'1' | 'auto' | 'initial' | 'none'>;
+  grow?: ResponsiveValue<'1' | '0'>
+  shrink?: ResponsiveValue<'1' | '0'>
+  
+  /// Grid properties
+  rowSpan?: ResponsiveValue;
+  rowStart?: ResponsiveValue;
+  rowEnd?: ResponsiveValue;
+  
+  colSpan?: ResponsiveValue;
+  colStart?: ResponsiveValue;
+  colEnd?: ResponsiveValue;
+  
+  /// Flexbox and Grid properties
+  order?: ResponsiveValue<string | number | 'first' | 'last' | 'none'>;
+  gap?: ResponsiveValue;
+  
+  /// Position properties
+  top?: ResponsiveValue;
+  right?: ResponsiveValue;
+  bottom?: ResponsiveValue;
+  left?: ResponsiveValue;
+  z?: ResponsiveValue;
+  x?: ResponsiveValue<0 | '0' | 'auto'>;
+  y?: ResponsiveValue<0 | '0' | 'auto'>;
+  xy?: ResponsiveValue<0 | '0' | 'auto'>;
+
+  /// Size properties
+  w?: ResponsiveValue;
+  h?: ResponsiveValue;
+  minW?: ResponsiveValue;
+  minH?: ResponsiveValue;
 };
 
 const {
@@ -59,6 +95,12 @@ const {
   opacity,
   
   radius,
+
+  flex,
+  grow,
+  shrink,
+  order,
+
   ...rest
 }: Props = Astro.props;
 
@@ -89,6 +131,11 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("color", color),
     ClassList.fromResponsiveValue("opacity", opacity),
     ClassList.fromResponsiveValue("radius", radius),
+
+    ClassList.fromResponsiveValue("flex", flex),
+    ClassList.fromResponsiveValue("grow", grow),
+    ClassList.fromResponsiveValue("shrink", shrink),
+    ClassList.fromResponsiveValue("order", order),
   ].filter(Boolean),
 );
 ---
