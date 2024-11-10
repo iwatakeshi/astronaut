@@ -71,7 +71,10 @@ const {
   as: Tag = "div",
   class: klass,
   "class:list": list,
+  /// Box properties
   display,
+  visibility,
+  /// Padding & Margin properties
   p,
   py,
   px,
@@ -91,16 +94,40 @@ const {
   me,
   ms,
 
+  /// Color & Opacity properties
   color,
   opacity,
   
+  // Radius properties
   radius,
 
+  /// Flexbox properties
   flex,
   grow,
   shrink,
   order,
-
+  /// Grid properties
+  rowSpan,
+  rowStart,
+  rowEnd,
+  colSpan,
+  colStart,
+  colEnd,
+  gap,
+  /// Position properties
+  top,
+  right,
+  bottom,
+  left,
+  z,
+  x,
+  y,
+  xy,
+  /// Size properties
+  w,
+  h,
+  minW,
+  minH,
   ...rest
 }: Props = Astro.props;
 
@@ -109,7 +136,10 @@ const classes = ClassList.add(
   list,
   ...[
     klass || '',
+    /// Box properties
     ClassList.fromResponsiveValue("display", display),
+    ClassList.fromResponsiveValue("visibility", visibility),
+    /// Padding & Margin properties
     ClassList.fromResponsiveValue("p", p),
     ClassList.fromResponsiveValue("py", py),
     ClassList.fromResponsiveValue("px", px),
@@ -128,14 +158,39 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("ml", ml),
     ClassList.fromResponsiveValue("me", me),
     ClassList.fromResponsiveValue("ms", ms),
+    /// Color & Opacity properties
     ClassList.fromResponsiveValue("color", color),
     ClassList.fromResponsiveValue("opacity", opacity),
+    /// Radius properties
     ClassList.fromResponsiveValue("radius", radius),
-
+    /// Flexbox properties
     ClassList.fromResponsiveValue("flex", flex),
     ClassList.fromResponsiveValue("grow", grow),
     ClassList.fromResponsiveValue("shrink", shrink),
     ClassList.fromResponsiveValue("order", order),
+    /// Grid properties
+    ClassList.fromResponsiveValue("row-span", rowSpan),
+    ClassList.fromResponsiveValue("row-start", rowStart),
+    ClassList.fromResponsiveValue("row-end", rowEnd),
+    ClassList.fromResponsiveValue("col-span", colSpan),
+    ClassList.fromResponsiveValue("col-start", colStart),
+    ClassList.fromResponsiveValue("col-end", colEnd),
+    ClassList.fromResponsiveValue("gap", gap),
+    /// Position properties
+    ClassList.fromResponsiveValue("top", top),
+    ClassList.fromResponsiveValue("right", right),
+    ClassList.fromResponsiveValue("bottom", bottom),
+    ClassList.fromResponsiveValue("left", left),
+    ClassList.fromResponsiveValue("z", z),
+    ClassList.fromResponsiveValue("x", x),
+    ClassList.fromResponsiveValue("y", y),
+    ClassList.fromResponsiveValue("xy", xy),
+    /// Size properties
+    ClassList.fromResponsiveValue("w", w),
+    ClassList.fromResponsiveValue("h", h),
+    ClassList.fromResponsiveValue("min-w", minW),
+    ClassList.fromResponsiveValue("min-h", minH),
+
   ].filter(Boolean),
 );
 ---
