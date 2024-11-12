@@ -65,6 +65,8 @@ export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   h?: ResponsiveValue;
   minW?: ResponsiveValue;
   minH?: ResponsiveValue;
+  maxW?: ResponsiveValue;
+  maxH?: ResponsiveValue;
 };
 
 const {
@@ -128,6 +130,8 @@ const {
   h,
   minW,
   minH,
+  maxW,
+  maxH,
   ...rest
 }: Props = Astro.props;
 
@@ -190,7 +194,8 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("h", h),
     ClassList.fromResponsiveValue("min-w", minW),
     ClassList.fromResponsiveValue("min-h", minH),
-
+    ClassList.fromResponsiveValue("max-w", maxW),
+    ClassList.fromResponsiveValue("max-h", maxH),
   ].filter(Boolean),
 );
 ---
