@@ -5,8 +5,8 @@
   "license": "MIT",
   "exports": {
     ".": "./index.ts",
-    "./utils/*": "./src/utils/*",
-    "./types/*": "./src/types/*"
+    "./src/utils/*": "./src/utils/*",
+    "./src/types/*": "./src/types/*"
   },
   "files": [
     "src",
