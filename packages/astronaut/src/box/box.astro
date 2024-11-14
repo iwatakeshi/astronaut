@@ -49,6 +49,15 @@ export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   /// Flexbox and Grid properties
   order?: ResponsiveValue<string | number | 'first' | 'last' | 'none'>;
   gap?: ResponsiveValue;
+  alignItems?: ResponsiveValue;
+  alignContent?: ResponsiveValue;
+  alignSelf?: ResponsiveValue;
+  justifyContent?: ResponsiveValue;
+  justifyItems?: ResponsiveValue;
+  justifySelf?: ResponsiveValue;
+  placeItems?: ResponsiveValue;
+  placeContent?: ResponsiveValue;
+  placeSelf?: ResponsiveValue;
   
   /// Position properties
   top?: ResponsiveValue;
@@ -115,7 +124,17 @@ const {
   colSpan,
   colStart,
   colEnd,
+  /// Flexbox and Grid properties
   gap,
+  alignItems,
+  alignContent,
+  alignSelf,
+  justifyContent,
+  justifyItems,
+  justifySelf,
+  placeItems,
+  placeContent,
+  placeSelf,
   /// Position properties
   top,
   right,
@@ -180,6 +199,16 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("col-start", colStart),
     ClassList.fromResponsiveValue("col-end", colEnd),
     ClassList.fromResponsiveValue("gap", gap),
+    /// Flexbox and Grid properties
+    ClassList.fromResponsiveValue("align-items", alignItems),
+    ClassList.fromResponsiveValue("align-content", alignContent),
+    ClassList.fromResponsiveValue("align-self", alignSelf),
+    ClassList.fromResponsiveValue("justify-content", justifyContent),
+    ClassList.fromResponsiveValue("justify-items", justifyItems),
+    ClassList.fromResponsiveValue("justify-self", justifySelf),
+    ClassList.fromResponsiveValue("place-items", placeItems),
+    ClassList.fromResponsiveValue("place-content", placeContent),
+    ClassList.fromResponsiveValue("place-self", placeSelf),
     /// Position properties
     ClassList.fromResponsiveValue("top", top),
     ClassList.fromResponsiveValue("right", right),
