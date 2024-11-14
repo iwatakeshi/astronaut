@@ -27,6 +27,7 @@ export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   me?: ResponsiveValue;
   ms?: ResponsiveValue;
 
+  bg?: ResponsiveValue;
   color?: ResponsiveValue;
   opacity?: ResponsiveValue;
 
@@ -106,6 +107,7 @@ const {
   ms,
 
   /// Color & Opacity properties
+  bg,
   color,
   opacity,
   
@@ -182,6 +184,7 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("me", me),
     ClassList.fromResponsiveValue("ms", ms),
     /// Color & Opacity properties
+    ClassList.fromResponsiveValue("bg", bg),
     ClassList.fromResponsiveValue("color", color),
     ClassList.fromResponsiveValue("opacity", opacity),
     /// Radius properties
