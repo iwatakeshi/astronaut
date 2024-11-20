@@ -61,6 +61,7 @@ export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   placeSelf?: ResponsiveValue;
   
   /// Position properties
+  position?: ResponsiveValue<'static' | 'fixed' | 'absolute' | 'relative' | 'sticky'>;
   top?: ResponsiveValue;
   right?: ResponsiveValue;
   bottom?: ResponsiveValue;
@@ -138,6 +139,7 @@ const {
   placeContent,
   placeSelf,
   /// Position properties
+  position,
   top,
   right,
   bottom,
@@ -213,6 +215,7 @@ const classes = ClassList.add(
     ClassList.fromResponsiveValue("place-content", placeContent),
     ClassList.fromResponsiveValue("place-self", placeSelf),
     /// Position properties
+    ClassList.fromResponsiveValue(null, position),
     ClassList.fromResponsiveValue("top", top),
     ClassList.fromResponsiveValue("right", right),
     ClassList.fromResponsiveValue("bottom", bottom),
